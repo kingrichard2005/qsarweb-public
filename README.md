@@ -2,7 +2,7 @@
 =======
 Description:
 
-This is the repository for the CSUSM QSAR Web Modelling graduate project 2014-2015.  The CSUSM QSAR Web Modelling System is designed to be a scalable web application framework used to train quantitative structure-activity relationship (QSAR) models for purposes of identifying unique optimal physicochemical properties in bio-pharmaceutical chemical drug compound data sets.
+This is the public repository for the CSUSM QSAR Web Modelling graduate project 2014-2015.  The CSUSM QSAR Web Modelling System is designed to be a scalable web application framework used to train quantitative structure-activity relationship (QSAR) models for purposes of identifying unique optimal physicochemical properties in bio-pharmaceutical chemical drug compound data sets.
 
 Requirements:
 * Anaconda Python 2.7 by Continuum Analytics
