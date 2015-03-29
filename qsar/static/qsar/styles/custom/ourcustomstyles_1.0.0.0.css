@@ -1,0 +1,218 @@
+body {
+	background: url('http://www.csusm.edu/images/backgrounds/background_campussephia2.jpg') no-repeat fixed center top #D5D0C5;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin: 0;
+	padding: 0;
+    color: #000000;
+    font-size: 101%;
+    display: block;
+}
+
+#container {
+    width: 100%;
+	/* background: #FFF;*/
+	margin: 0px auto; /* the auto value on the sides, coupled with the width, centers the layout */
+    text-align: center;
+}
+
+
+#header_wrapper {
+	width: 100%;
+	height: 77px;
+	background: url('http://www.csusm.edu/images/header/header_wrapper_bg_2013.png') repeat-x;
+}
+#header_frame {
+	margin: 0px auto;
+	width: 996px;
+    height: 100px;
+	clear: both;
+	z-index: 1;
+}
+
+.row{
+    width: 996px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.col {
+    margin-left:10px; margin-right:10px;
+    display: inline;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+.col_6, .width_6 {
+    width: 478px;
+}
+.col_12, .width_12  {
+    width:976px; 
+}
+
+#content_wrapper
+{
+    width: 100%;
+    z-index: 0; 
+}
+
+#content_frame
+{
+    margin: 0px auto;
+    clear: both;
+    z-index: 1;
+}
+
+#theme_image_bg
+{   
+    position:relative;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    border-left:0px;
+    margin-top:0px;
+    margin-bottom:6px;
+    background-repeat:no-repeat;
+    height:210px;
+    padding-bottom:6px;
+    top:6px;
+
+}
+
+#theme_image
+{
+    top:8px;
+    left:6px;
+    position:relative;
+    height:190px;
+    width:740px;
+    margin:auto;
+    overflow:hidden;
+}
+
+#main {
+    display: table;
+    margin: 0 auto;
+}
+
+
+#tabs {
+    height: 500px;
+	width: 800px;
+	float: left;
+    padding: 30px;
+    margin-top: 30px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 25px;
+}
+
+#tabs-1, #tabs-2, #tabs-3 {
+    width: 565px
+}
+	
+
+#sidebar {
+   float: left;
+   width: 50px;
+   
+   font-family: "Times New Roman", Times, serif;
+   font-size: 18px;
+   color: #FFF;
+   padding: 5px;
+   font-weight: bold;
+   margin-top: 30px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+   margin-left: 5px;
+}
+
+footer {
+    display: table;
+    margin: 0 auto;
+	border-top: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	font-size: 12px;
+	margin-top: 10px;
+	padding: 10px 0;
+	width: 100%;
+    text-align:center
+}
+
+/*Misc.*/
+body { font-size: 62.5%; }
+
+label, input { display:block; }
+
+input.text { margin-bottom:12px; width:95%; padding: .4em; }
+
+fieldset { padding:0; border:0; margin-top:25px; }
+
+h1 { font-size: 1.2em; margin: .6em 0; }
+
+div#users-contain { width: 350px; margin: 20px 0; }
+
+div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+
+div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+
+.ui-dialog .ui-state-error { padding: .3em; }
+
+
+/*Tab interface*/
+.ui-tabs-vertical { width: 55em; }
+
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 10.75em; }
+
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
+
+.ui-tabs-vertical .ui-tabs-panel { padding: 1px; float: right; }
+
+/*Toolbar styles*/
+#toolbar {
+    padding: 4px;
+    display: inline-block;
+    display: table;
+    margin: 0 auto;
+  }
+/* support: IE7 */
+*+html #toolbar {
+display: inline;
+}
+
+/*Model Configuration Toolbar*/
+.modelConfigToolbar > div {
+    display: inline-block;
+    display: -moz-inline-box;
+    *display: inline; /* For IE7 */
+    zoom: 1; /* Trigger hasLayout */
+    width: auto;
+    text-align: center;
+}
+
+.leftModelCfgtButton {
+    float: left;
+}
+
+.rightModelCfgtButton {
+    float: right;
+}
+
+#loadDataToolbar {
+    padding: 4px;
+    display: inline-block;
+    display: table;
+    margin: 0 auto;
+    float: left;
+  }
+
+
+.terminal-output {
+    text-align: left;
+}
+
+.adjust_config_Section_width {
+    width: 420px;
+}

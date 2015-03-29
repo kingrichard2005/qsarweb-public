@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>QSAR Web Modelling System</title>
+
+    <!--CSS Resources-->
+	<link rel="stylesheet" href="/static/qsar/styles/themes/base/all.css">
+    <link rel="stylesheet" href="/static/qsar/styles/chosen/chosen.css">
+    <link rel="stylesheet" href="/static/qsar/styles/terminal/jquery.terminal.css">
+    <link rel="stylesheet" href="/static/qsar/styles/custom/ourcustomstyles_1.0.0.0.css">
+
+    <!--Third-Party JavaScript Resources-->
+    <script src="/static/qsar/scripts/external/jquery/jquery_2.0.3.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="/static/qsar/scripts/external/chosen/chosen.jquery.js"></script>
+    <script src="/static/qsar/scripts/external/blockui/jquery.blockUI.1.33.js"></script>
+    <!--see ref:http://stackoverflow.com/questions/20715606/post-data-using-ajax-post/20715760#20715760-->
+    <script src="/static/qsar/scripts/external/html5-formdata/formdata.js"></script>
+    <script src="/static/qsar/scripts/external/jquery-mousewheel-master/jquery.mousewheel.js"></script>
+    <script src="/static/qsar/scripts/external/terminal/jquery.terminal-0.8.8.js"></script>
+    <script src="/static/qsar/scripts/external/moment/moment-with-locales_2.8.3.js"></script>
+    <script src="/static/qsar/scripts/external/zeroclipboard-2.1.6/ZeroClipboard.js"></script>
+    <script src="/static/qsar/scripts/external/File-Upload-9.8.0/jquery.ui.widget.js"></script>
+    <script src="/static/qsar/scripts/external/File-Upload-9.8.0/jquery.iframe-transport.js"></script>
+    <script src="/static/qsar/scripts/external/File-Upload-9.8.0/jquery.fileupload.js"></script>
+
+    <!--Our custom JavaScripts-->
+    <script src="/static/qsar/scripts/custom/security-utilities_1.0.0.0.js"></script>
+    <script src="/static/qsar/scripts/custom/ui-form-decorators_1.0.0.0.js"></script>
+</head>
+<body id="qsar-main-ui">
+    <!--Main container-->
+    <div id="container">
+	    <div id="header_wrapper">
+            <div id="header_frame">
+                <div class="row">
+                    <div class="col col_6">
+                        <a href="http://www.csusm.edu"><img src="http://www.csusm.edu/images/logos/csusm-logo-small.png" alt="http://www.csusm.edu" style="padding-top:7px;float:left"></a>
+                    </div>
+                    <div class="col col_6">
+                    </div>
+                </div>
+                <div class="clear" style="height:5px;"></div>
+            </div>
+        </div>
+
+        <div id="content_wrapper">
+            <div id="content_frame">
+                <div id="theme_image_bg">
+                    <div id="theme_image">
+                        <img alt="" src="/static/qsar/styles/custom/CSUSM_QSAR_2014_BANNER_resize.jpg">
+                    </div>
+                </div>
+                <div id="main">
+                    <input type="hidden" id="sessionid" name="Language" value="{{session.sessionhash}}">   
+                    <input type="hidden" id="taskid" name="Language" value="">
+                    <div id="tabs">
+		                <div id="sidebar">
+	                      <ul>
+		                    <li><a href="#tabs-1">About</a></li>
+		                    <li><a href="#tabs-2">Choose Model and Data</a></li>
+		                    <li><a href="#tabs-3">Result</a></li>
+	                      </ul>
+			            </div>
+	                    <div id="tabs-1">
+		                    <h2>The CSUSM QSAR Web Modelling System</h2>
+                            <span class="clock"></span>
+                            <br />
+                            <br />
+                            <p>
+                                Welcome to the CSUSM QSAR Web Modelling System,
+                                please click on "Choose Model and Data" to begin a new session.
+                                <br />
+                                <br />
+                                <button id="start_qsar_session">Choose Model and Data</button>
+                            </p>
+                        </div>
+	                    <div id="tabs-2">
+		                    <h2>Model Configuration Console</h2>
+                            <span class="clock"></span>
+                            <div id="toolbar" class="ui-widget-header ui-corner-all">
+                              <button id="update_model_config">Choose Model and Data</button>
+                              <button id="startTraining">Start Training</button>
+                              <button id="stopTraining">Stop Training</button>
+                              <button class="trainingStatusButton">Get Training Status</button>
+                            </div>
+		                    <br />
+                            <br />
+		                    <div id="modelConfigurationConsole" class="terminal" style="height: 200px;"></div>
+                            <br />
+                            <br />
+                            <div id="toolbar" class="ui-widget-header ui-corner-all">
+                              <button class="copy-sessionid-button" data-clipboard-text="ORALE!">Copy Session ID to Clipboard</button>
+                            </div>
+                            <div id="model_config_dialog">
+                                <h3>Select your Model Configuration</h3>
+                                <div>
+                                    <form id="model_config_dialogForm">
+                                        {% csrf_token %}
+                                        <em>Select a Machine Learning Model Type: </em>
+                                        <br />
+                                        <select id="select-modeltype" style="width:350px;" tabindex="1">
+                                            <option value="" disabled selected>Model Types...</option>
+                                        </select>
+                                        <br />
+                                        <br />
+                                        <em>Select a Machine Learning Model: </em>
+                                        <br />
+                                        <select id="select-machineLearningModel" style="width:350px;" tabindex="1">
+                                            <option value="" disabled selected>Machine Learning Models...</option>
+                                        </select>
+                                        <br />
+                                        <br />
+                                        <em>Select an Evolutionary Algorithm for this Machine Learning Model: </em>
+                                        <br />
+                                        <select id="select-evolutionaryAlgorithms" style="width:350px;" tabindex="1">
+                                            <option value="" disabled selected>Evolutionary Algorithms...</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <em>Select an Implementation for the Evolutionary Algorithm: </em>
+                                        <br />
+                                        <select id="select-implementationMethod" style="width:350px;" tabindex="1">
+                                            <option value="" disabled selected>Select Implementation Method...</option>
+                                        </select>
+                                        <br>
+                                        <br>
+                                       <br>
+                                        <!-- Form buttons -->
+                                        <div class="modelConfigToolbar">
+                                            <div class="leftModelCfgtButton">
+                                                <input type="submit" value="Create Session" class="startNewSession" tabindex=1>
+
+                                            </div>
+                                            <div class="rightModelCfgtButton">
+                                                <button class="loadData" tabindex=2>Load New Data</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <h3 class="adjust_config_Section_width">Select a (CSV) training data file</h3>
+                                <div>
+                                <form id="trainingDataDialogForm" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <!-- Form buttons -->
+                                    <div class="fileUploadToolbar">
+                                        <div class="leftModelCfgtButton">
+                                            <input type="file" id="trainingDataFile" tabindex=1 name="files[]" data-url="uploadTrainingDataInput/" multiple />
+                                        </div>
+                                        <div class="rightModelCfgtButton">
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+
+
+                        </div>
+	                    <div id="tabs-3">
+		                    <h2>Training Result(s) Monitor</h2>
+                            <span class="clock"></span>
+                            <br />
+                            <br />
+                            <a class="pullData">Download Latest Result File</a>
+                            <!--<a href="../static/qsar/results/AboutThisDirectory.md">Download Latest Result File</a>-->
+		                    <br />
+                            <br />
+		                    <div id="trainingResults" class="terminal" style="height: 200px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="col col_6">
+                    <div id="footer_copyright">
+                        &copy Copyright 2014 <a href="http://www.csusm.edu/" title="CSUSM Homepage">California State University San Marcos</a>. All rights reserved.
+                    </div>      
+                </div>
+                <div class="col col_6">
+                    <div id="footer_links">
+                        <a href="http://www.calstate.edu" title="The California State University">The California State University</a> 
+                        | 
+                        <a href="http://www.collegeportraits.org/CA/CSUSM" title="College Portrait">College Portrait</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
