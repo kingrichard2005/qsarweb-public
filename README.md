@@ -1,4 +1,4 @@
-### CalState San Marcos Computer Science Department QSAR Web Modelling System
+### CalState San Marcos Computer Science Department QSAR Web Modeling System
 =======
 Description:
 
